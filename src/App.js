@@ -1,24 +1,50 @@
-import logo from './logo.svg';
 import './App.css';
+import React from "react";
+import Navbar from './components/Navbar';
+import Body from './components/Body';
+import { CartProvider } from './context/CartContext';
+
+
+// const reducer = (state,{type,payload})=>{
+//   switch(type){
+//     case "INCREMENT":{
+//         return state+payload;
+//     }
+//     case "DECREMENT":{
+//       return state-payload;
+//     }
+//     default:{
+//       return state;
+//     }
+//   }
+// }
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+
+//   const [counter, dispatch] = React.useReducer(reducer,0)
+
+//   return (
+//     <div className="App">
+
+//       counter:{counter}
+//       <div>
+//         <button onClick={()=>dispatch({type:"DECREMENT",payload:1})}>-</button>
+//         <button onClick={()=>dispatch({type:"INCREMENT",payload:100})}>+</button>
+//       </div>
+//     </div>
+
+return (
+
+  <div className='App'>
+
+    <CartProvider>
+    <Navbar/>
+    <Body/>
+    </CartProvider>
+    
+
+  </div>
+
   );
 }
 
