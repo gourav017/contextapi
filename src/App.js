@@ -1,8 +1,9 @@
 import './App.css';
-import React from "react";
+import React, { useContext } from "react";
 import Navbar from './components/Navbar';
 import Body from './components/Body';
 import { CartProvider } from './context/CartContext';
+import { ThemeContext } from './context/ThemeContext';
 
 
 // const reducer = (state,{type,payload})=>{
@@ -33,14 +34,15 @@ function App() {
 //       </div>
 //     </div>
 
+const {isLight} = useContext(ThemeContext);
 return (
 
-  <div className='App'>
+  <div className={`App ${isLight ? "light":"dark"}`}>
 
-    <CartProvider>
+   
     <Navbar/>
     <Body/>
-    </CartProvider>
+    
     
 
   </div>

@@ -1,11 +1,13 @@
-import React, { createContext } from "react";
+import { createContext } from "react";
+import { useState } from "react";
+
 
 export const AuthContext = createContext();
 
 
 export const AuthProvider = ({children})=>{
 
-    const [isAuthorized, setisAuthorized] = React.useState(false);
+    const [isAuthorized, setisAuthorized] = useState(false);
 
     const login = (username,password)=>{
         if(username && password){
@@ -17,7 +19,10 @@ export const AuthProvider = ({children})=>{
         setisAuthorized(false);
     }
 
-    return <AuthContext.AuthProvider value={{isAuthorized,login,logout}} >
-        {children}
-        </AuthContext.AuthProvider>
-}
+    return (
+        <AuthContext.Provider value={{isAuthorized,login,logout}}>
+            {children}
+        </AuthContext.Provider>
+    )
+    
+};
